@@ -1,0 +1,40 @@
+<script src="/socket.io/socket.io.js"></script>
+<h1>Lista de Productos</h1>
+
+<ul id="productList" class="product-list">
+  <!-- Los productos serán insertados aquí dinámicamente -->
+</ul>
+<section class="forms-container">
+
+
+<!-- Formulario para agregar nuevos productos -->
+<div class="product-form">
+  <h2>Agregar un nuevo producto</h2>
+  <input  type="text" id="productTitle" placeholder="Título" />
+  <input type="text" id="productDescription" placeholder="Descripción" />
+  <input type="text" id="productCode" placeholder="Código" />
+  <input type="number" id="productPrice" placeholder="Precio" />
+  <div class="product-status"> Estado<input type="checkbox" id="productStatus" />  </div>
+  <input type="number" id="productStock" placeholder="Stock" />
+<select id="productCategory" placeholder="Seleccionar categoría">
+  <option value="Proteinas">Proteínas</option>
+  <option value="Suplementos">Suplementos</option>
+  <option value="Accesorios">Accesorios</option>
+  <option value="Vitaminas">Vitaminas</option>
+  <option value="Equipamiento">Equipamiento</option>
+  <option value="Calzado">Calzado</option>
+  <option value="Ropa">Ropa</option>
+  <option value="Otros">Otros</option>
+</select>
+  <input type="text" id="productThumbnail1" placeholder="Thumbnail 1" />
+  <input type="text" id="productThumbnail2" placeholder="Thumbnail 2" />
+  <button onclick="addProduct()">Agregar Producto</button>
+</div>
+
+<div class="product-form-delete">
+  <h2>Eliminar un producto</h2>
+  <input type="text" id="productId" placeholder="ID del producto" />
+  <button onclick="deleteProduct()">Eliminar Producto</button>
+</div>
+</section>
+<script src="/api/public/js/products.socket.js"> </script>

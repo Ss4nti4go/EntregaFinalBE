@@ -1,0 +1,1 @@
+mongoimport --uri="mongodb+srv://cluster0.4i0l5oa.mongodb.net/" -u santiagoluccamiraglia8 -p 1234 --db="productos" --collection="productos" --file="./backups/ombreDelArchivo.json" --jsonArray
