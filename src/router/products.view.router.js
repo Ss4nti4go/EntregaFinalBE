@@ -52,24 +52,13 @@ router.get('/product/:pid', async (req, res) => {
   const { pid } = req.params;
   try {
     const product = await productManagerInstance.getProductById(pid);
-    // Verifica si las propiedades existen y son propias
-    const cleanProduct = {
-      title: product.title,
-      price: product.price,
-      description: product.description,
-      code: product.code,
-      status: product.status,
-      stock: product.stock,
-      category: product.category,
-      thumbnails: product.thumbnails
-    };
-    
-    res.status(200).render('product', { product: cleanProduct });
+    const plainProduct = product.toObject(); // Convierte a un objeto plano
+    res.status(200).render('product', { product: plainProduct });
+ 
   } catch (error) {
 
     res.status(500).send(`<h1>Error al obtener el producto: ${error.message}</h1>`);
     throw new ErrorManager(error.message, 500);
   }
 });
-
 export default router;
