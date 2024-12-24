@@ -9,12 +9,14 @@
     <p>Stock: {{product.stock}}</p>
     <p>Categoría: {{product.category}}</p>
 
-    <!-- Muestra las imágenes si existen -->
- 
+    <!-- Verifica si existen imágenes -->
     <div>
-      <img src="{{product.thumbnails.[0]}}" alt="Imagen del producto" />
+      {{#if product.thumbnails}}
+        <img src="{{product.thumbnails.[0]}}" alt="Imagen del producto" />
+      {{else}}
+        <p>No hay imágenes disponibles para este producto.</p>
+      {{/if}}
     </div>
- 
   </li>
 </ul>
 <a href="/" class="back-button">Volver</a>
